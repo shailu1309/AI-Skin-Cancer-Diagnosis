@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Style the main header */
+        nav {
+          display: flex;
+          flex-wrap: nowrap;
+        }
+        nav a {
+          display: block;
+          width: 120px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          background-color: linear-gradient(to right,rgb(23, 99, 220), rgb(2, 105, 79));
+          border: 1px solid #aaa;
+          border-radius: 5px;
+          text-decoration: none;
+          color: rgb(255, 255, 255);
+          margin-bottom: 5px;
+          flex: 1;
+          font-family:Trebuchet MS
+        }
+        nav a:hover {
+          background-color:rgb(245, 112, 169);
+          color:white;
+        }
+    
+        h2 {
+          text-align: center;
+          color: blue;
+          padding: 20px;
+          font: bold;
+          padding: 4px 8px;
+          border: 1px solid transparent;
+          transition: 0.6s ease;
+          margin: 5px;
+          font-family:Trebuchet MS
+        }
+    
+        h4 {
+          text-align: center;
+          color: blue;
+          padding: 20px;
+          font: bold;
+          padding: 4px 8px;
+          border: 1px solid transparent;
+          transition: 0.6s ease;
+          margin: 5px;
+          font-family:Trebuchet MS
+        }
+    
+        h3 {
+          text-align: center;
+          color: rgb(84, 2, 55);
+          padding: 20px;
+          font: bold;
+          padding: 4px 8px;
+          border: 10px solid transparent;
+          transition: 0.6s ease;
+          margin: 5px;
+          font-family:Trebuchet MS
+        }
+    
+        /* Style the body lines */
+        p {
+          text-align: center;
+          color:rgb(213, 213, 213);
+          padding: 5px;
+          border: 5px solid transparent;
+          transition: 0.6s ease;
+          margin: 5px;
+          font-family:Trebuchet MS
+        }
+      </style>
+</head>
+<body style="background: linear-gradient(to right,rgb(23, 99, 220), rgb(2, 105, 79));">
+    <header>
+        <nav>
+          <a href="{{ url_for('index') }}">Home</a> | 
+          <a href="{{ url_for('info') }}">Instructions</a> | 
+          <a href="{{ url_for('about') }}">About</a>
+        </nav>
+      </header>
+
+    <h3>About Application</h3>
+    <p>This application is intended to be used by Dermatology specialists in delivering skin cancer diagnosis. <br>
+      This application is capable of detecting seven types of skin cancers,namely:</p>
+      <p>1. Melanoma</p>
+      <p>2. Melanocytic Nevus</p>
+      <p>3. Basal cell carcinoma </p>
+      <p>4. Actinic Keratosis/ Bowens' disease</p>
+      <p>5. Benign Keratosis</p>
+      <p>6. Dermatofibroma</p>
+      <p>7. Vasuclar Lesion</p>
+    <p>The AI model used in diagnosing the skin cancer type has an overall accuracy of 80.45%. The precision with which model predicts for each of the classes varies.
+     Model has highest precision for Vascular lesion (100%), followed by Dermatofibroma (98%).
+    Use the table below to get an account of the error of predictions from the table below</p>
+
+    <p style="text-align:center;"><img src="static/images/classificationerror.JPG" alt="Error",width="100" height="150"></p>
+
+    
+</body>
+</html>

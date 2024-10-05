@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Style the main header */
+        nav {
+          display: flex;
+          flex-wrap: nowrap;
+        }
+        nav a {
+          display: block;
+          width: 120px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          background-color: linear-gradient(to right,rgb(23, 99, 220), rgb(2, 105, 79));
+          border: 1px solid #aaa;
+          border-radius: 5px;
+          text-decoration: none;
+          color: rgb(255, 255, 255);
+          margin-bottom: 5px;
+          flex: 1;
+          font-family:Trebuchet MS
+        }
+        nav a:hover {
+          background-color:rgb(245, 112, 169);
+          color:white;
+        }
+    
+        h2 {
+          text-align: center;
+          color: rgb(84, 2, 55);
+          padding: 20px;
+          font: bold;
+          padding: 4px 8px;
+          border: 10px solid transparent;
+          transition: 0.6s ease;
+          margin: 5px;
+          font-family:Trebuchet MS
+        }
+    
+        h4 {
+          text-align: center;
+          color:rgb(84, 2, 55);
+          padding: 20px;
+          font: bold;
+          padding: 4px 8px;
+          border: 1px solid transparent;
+          transition: 0.6s ease;
+          margin: 5px;
+          font-family:Trebuchet MS
+        }
+    
+        /* Style the body lines */
+        p {
+          text-align: center;
+          color: rgb(213, 213, 213);
+          padding: 10px;
+          border: 10px solid transparent;
+          transition: 0.6s ease;
+          margin: 5px;
+          font-family:Trebuchet MS
+        }
+      </style>
+</head>
+<body style="background: linear-gradient(to right,rgb(23, 99, 220), rgb(2, 105, 79));">
+    <header>
+        <nav>
+          <a href="{{ url_for('index') }}">Home</a> | 
+          <a href="{{ url_for('info') }}">Instructions</a> | 
+          <a href="{{ url_for('about') }}">About</a>
+        </nav>
+      </header>
+
+    <h2> Here are some instructions to use the application efficiently</h2>
+    <p>1. Use high quality images with a resolution of atleast 128 x 128 pixels</p>
+    <p>2. Keep focus on the lesion and avoid getting too much surrounding white/normal skin in the image</p>
+    <p>3. Please note that the diagnosis delivered by the application is only indicative and not conclusive</p>
+    <h4>Example of a good lesion image:</h4>
+    <p style="text-align:center;"><img src="static/images/ISIC_0032531.jpg" alt="Lesion Image",width="150" height="150"></p>
+</body>
+</html>

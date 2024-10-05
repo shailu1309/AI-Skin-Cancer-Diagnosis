@@ -1,0 +1,150 @@
+<!doctype html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+  <!-- Make it compatible to mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skin Cancer Lesion Classifier</title>
+  <style>
+    /* Style the main header */
+    nav {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    nav a {
+      display: block;
+      width: 120px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      background-color: linear-gradient(to right, rgb(23, 99, 220), rgb(2, 105, 79));
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      text-decoration: none;
+      color: rgb(255, 255, 255);
+      margin-bottom: 5px;
+      flex: 1;
+      font-family:Trebuchet MS
+    }
+    nav a:hover {
+      background-color:rgb(245, 112, 169);
+      color:white;
+    }
+
+    h2 {
+      text-align: center;
+      color: rgb(244, 244, 249);
+      padding: 20px;
+      font: bold;
+      padding: 4px 8px;
+      border: 1px solid transparent;
+      transition: 0.6s ease;
+      margin: 5px;
+    }
+
+    h4 {
+      text-align: center;
+      color: rgb(245, 245, 250);
+      padding: 20px;
+      font: bold;
+      padding: 4px 8px;
+      border: 1px solid transparent;
+      transition: 0.6s ease;
+      margin: 5px;
+    }
+
+    h3 {
+      text-align: center;
+      color: rgb(243, 243, 247);
+      padding: 20px;
+      font: bold;
+      padding: 4px 8px;
+      border: 1px solid transparent;
+      transition: 0.6s ease;
+      margin: 5px;
+    }
+
+    /* Style for form*/
+    form {
+      text-align: center;
+      align-items: center;
+      padding: 20px;
+      padding: 4px 8px;
+      border: 1px solid transparent;
+      transition: 0.6s ease;
+      margin: 5px;
+    }
+
+    /* Style the body lines */
+    p {
+      text-align: center;
+      color: rgb(2, 56, 2);
+      padding: 2px;
+      border: 1px solid transparent;
+      transition: 0.6s ease;
+      margin: 5px;
+    }
+
+    /* Style the image */
+    img {
+      text-align: center;
+      align-items: center;
+      border: 2px solid rgb(2, 56, 2);
+      border: 1px solid transparent;
+      transition: 0.6s ease;
+      margin: 5px;
+    }
+
+  </style>
+  
+</head>
+
+
+<body style="background: linear-gradient(to right, rgb(23, 99, 220), rgb(2, 105, 79));">
+
+  <header>
+    <nav>
+      <a href="{{ url_for('index') }}">Home</a> | 
+      <a href="{{ url_for('info') }}">Instructions</a> | 
+      <a href="{{ url_for('about') }}">About</a>
+    </nav>
+  </header>
+
+  <main>
+  <h4 style="color:rgb(132, 18, 18);font-family:Trebuchet MS">Please read instructions before using the tool</h4>
+  <h2 style="color:rgb(176, 183, 176);font-family:Trebuchet MS">AI-enabled Skin Cancer Diagnosis Assistant</h2>
+  
+  <p>
+  <h4 style="color:rgb(245, 112, 169);font-family:Trebuchet MS">Upload an Image and click Submit</h4>
+
+  <form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+  <p style="color:rgb(115, 114, 115);font-family:Trebuchet MS">
+    <input type="file" name="file" autocomplete="off" required style="border: 2px solid white; padding: 4px 8px;">
+  </p>
+    </dl>
+    <p style="color:Violet;font-family:Trebuchet MS">
+  <input type="submit" name="submit" value="Submit" style="background-color: rgb(91, 91, 93); color:rgb(176, 183, 176); padding: 4px 8px;">
+    </p>
+
+  </form>
+  <p style="color:rgb(176, 183, 176); text-align: center;font-family:Trebuchet MS;">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        Diagnosis for the following image is: <u><h3 style="color:rgb(176, 183, 176);">{{ messages[0] }}</h3></u><br>
+    </p>
+        <img src="{{ messages[2] }}" width="300", height="225" style="display: block; margin: auto;">
+
+   <p style="color:rgb(176, 183, 176); text-align: center;font-family:Trebuchet MS;">
+    Confidence score: <u><h3 style="color:rgb(176, 183, 176);">{{ messages[1] }} %</h3></u><br>
+      {% endif %}
+    {% endwith %}
+   </p>  
+
+  </main>
+
+
+
+</body>
+
