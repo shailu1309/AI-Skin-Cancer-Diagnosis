@@ -16,6 +16,49 @@ The project places a heavy emphasis on **Convolutional Neural Networks (CNN)** o
 
 Compared to **ANNs**, which struggle with large image inputs, CNNs are much more suited to the high-dimensional nature of image data. This makes CNNs the preferred choice for skin cancer diagnosis, where subtle visual cues differentiate between cancerous and non-cancerous lesions.
 
+## Exploring the Dataset
+
+The dataset used for training and evaluating the models in this project is derived from the **International Skin Imaging Collaboration (ISIC)** archive, which is a well-known repository for dermoscopic images of skin lesions. This dataset is crucial for developing a robust model capable of distinguishing between different types of skin cancer lesions.
+
+![Dataset](images/dataset_viz.png)
+
+
+### Dataset Characteristics:
+- **Size**: The dataset consists of thousands of high-quality dermoscopic images.
+- **Classes**: The images are categorized into seven distinct classes, including melanoma, basal cell carcinoma, and benign keratosis, among others.
+- **Image Quality**: Each image is captured under standardized conditions to ensure consistency and reliability in model training.
+- **Annotations**: The dataset includes expert annotations, providing ground truth labels for each image, which are essential for supervised learning.
+
+
+### Data Preprocessing:
+To prepare the dataset for model training, several preprocessing steps are applied:
+1. **Resizing**: Images are resized to match the input dimensions required by the CNN models (e.g., 128x128, 224x224).
+2. **Normalization**: Pixel values are normalized to a range of [0, 1] to facilitate faster convergence during training.
+3. **Augmentation**: Techniques such as rotation, flipping, and zooming are employed to artificially expand the dataset and improve model generalization.
+
+## Handling Imbalanced Classes
+
+In the context of skin cancer diagnosis, the dataset often exhibits class imbalance, where certain types of lesions are more prevalent than others. This imbalance can lead to biased model predictions, favoring the majority classes. To address this issue, several strategies were employed:
+
+1. **Data Augmentation**: Additional synthetic samples were generated for underrepresented classes using techniques such as rotation, flipping, and color jittering. This helps in balancing the class distribution and improving model generalization.
+
+2. **Class Weighing**: During model training, class weights were adjusted inversely proportional to class frequencies. This ensures that the model pays more attention to minority classes, reducing bias towards majority classes.
+
+3. **Resampling Techniques**: Both oversampling of minority classes and undersampling of majority classes were explored to create a more balanced training dataset. This was done carefully to avoid overfitting or losing important information.
+
+4. **Use of Focal Loss**: Focal loss was implemented as an alternative to standard cross-entropy loss. It focuses more on hard-to-classify examples, which are often from minority classes, thus improving the model's ability to learn from imbalanced data.
+
+By integrating these techniques, the project aims to enhance the model's performance across all classes, ensuring reliable and unbiased skin cancer diagnosis.
+
+### Dataset Split:
+The dataset is split into training, validation, and test sets to evaluate the model's performance effectively:
+- **Training Set**: Used to train the model, comprising the majority of the dataset.
+- **Validation Set**: Used to tune hyperparameters and prevent overfitting.
+- **Test Set**: Used to assess the final model's performance on unseen data.
+
+By leveraging this comprehensive dataset, the project aims to build a highly accurate and reliable skin cancer diagnosis assistant that can aid dermatologists in clinical settings.
+
+
 ---
 
 ## Project Structure
